@@ -149,6 +149,12 @@
   }
 
   .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:28px;}
+  .badge:hover{
+    border-color:var(--accent-blue);
+    box-shadow:0 10px 24px rgba(0,0,0,.35);
+    color:var(--text-primary);
+    cursor:pointer;
+  }
   .badge{
     font-family:var(--mono);
     font-size:12.5px;
@@ -329,3 +335,38 @@
     outline:2px solid var(--accent-blue);
     outline-offset:2px;
   }
+/* ---------- Mobile: everything fits on one screen ---------- */
+@media (max-width:768px){
+
+  /* tab bar: all tabs visible, no sideways scrolling */
+  .tabbar{
+    flex-wrap:wrap;
+    overflow:visible;
+  }
+  .tab{
+    flex:1 1 auto;
+    justify-content:center;
+    gap:0;
+    padding:11px 6px;
+    font-size:10.5px;
+  }
+  .tab .dot{display:none;}
+
+  /* hero: fits inside one screen */
+  #home{
+    min-height:calc(100svh - 42px);
+    padding:24px 6vw;
+  }
+  .code-block{font-size:13px;}
+  .code-block .row{margin-bottom:2px;}
+  .gutter-line{gap:14px;}
+  .hero-name{font-size:28px;}
+  .hero-sub{font-size:14px; margin-top:10px;}
+  .badges{gap:6px; margin-top:16px;}
+  .badge{font-size:11px; padding:3px 9px;}
+  .cta-row{margin-top:20px; gap:10px; flex-wrap:nowrap;}
+  .btn{font-size:13px; padding:10px 14px;}
+}
+
+/* keep the long "status" line from overlapping the line number */
+.gutter-line > span:last-child{min-width:0; word-break:break-word;}
